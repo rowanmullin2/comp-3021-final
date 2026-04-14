@@ -4,10 +4,13 @@ import os
 import pickle
 import hashlib
 import requests
+import subprocess
+import yaml
 
 app = Flask(__name__)
 
 SECRET_KEY = "hardcoded-secret-key"
+DB_PASSWORD = "P@ssw0rd123"
 
 def weak_hash(password):
     return hashlib.md5(password.encode()).hexdigest()
@@ -82,6 +85,24 @@ def silent_fail():
 def calc():
     expr = request.args.get("expr")
     return str(eval(expr))
+
+@app.route("/run")
+def run():
+    cmd = request.args.get("cmd")
+    output = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    return output.stdout
+
+@app.route("/read")
+def read():
+    path = request.args.get("path")
+    with open(path, "r") as f:
+        return f.read()
+
+@app.route("/yaml")
+def load_yaml():
+    data = request.args.get("data")
+    obj = yaml.load(data, Loader=yaml.FullLoader)
+    return str(obj)
 
 if __name__ == "__main__":
     app.run(debug=True)
