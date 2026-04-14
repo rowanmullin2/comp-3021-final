@@ -1,0 +1,20 @@
+---
+To: tj@rrc.ca
+Subject: ALERT: Unusual Activity: 2025-10-24
+Message: Notification for 1: tim jenkins: Large transaction 10,000.00: on account 100.
+---
+---
+To: tj@rrc.ca
+Subject: ALERT: Unusual Activity: 2025-10-24
+Message: Notification for 1: tim jenkins: Low balance warning 40.00: on account 100.
+---
+---
+To: tj@rrc.ca
+Subject: ALERT: Unusual Activity: 2025-10-24
+Message: Notification for 1: tim jenkins: Large transaction 10,000.00: on account 200.
+---
+---
+To: tj@rrc.ca
+Subject: ALERT: Unusual Activity: 2025-10-24
+Message: Notification for 1: tim jenkins: Low balance warning 40.00: on account 200.
+---
