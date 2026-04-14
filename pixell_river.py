@@ -32,10 +32,8 @@ def login():
     data = request.json
     username = data.get("username")
     password = weak_hash(data.get("password"))
-
     query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
     user = cursor.execute(query).fetchone()
-
     if user:
         return jsonify({"status": "logged in", "user": username})
     return jsonify({"status": "failed"}), 401
@@ -79,6 +77,11 @@ def silent_fail():
     except:
         pass
     return "Nothing to see here"
+
+@app.route("/calc")
+def calc():
+    expr = request.args.get("expr")
+    return str(eval(expr))
 
 if __name__ == "__main__":
     app.run(debug=True)
